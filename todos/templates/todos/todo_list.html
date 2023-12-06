@@ -20,6 +20,34 @@
         <h1>
             Lista de tarefas
         </h1>
+        {% if todo_list %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Criado em </th>
+                        <th scope="col">Data de entrega</th>
+                        <th scope="col">Finalizado em</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for todo in todo_list%}
+                        <tr>
+                            <th scope="row">{{todo.id}}</th>
+                            <td>{{todo.title}}</td>
+                            <td>{{todo.create_at}}</td>
+                            <td>{{todo.dead_line}}</td>
+                            <td>{{todo.finshed_at|default:"-"}}</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm">Concluir</a>
+                                <a href="#" class="btn btn-danger btn-sm">Excluir</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
         <table class="table">
             <thead>
                 <tr>
@@ -31,17 +59,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% for todo in todos%}
                     <tr>
-                        <th scope="row">{{todo.id}}</th>
-                        <td>{{todo.title}}</td>
-                        <td>{{todo.create_at}}</td>
-                        <td>{{todo.dead_line}}</td>
-                        <td>{{todo.finshed_at|default:"-"}}</td>
+                        <th scope="row">0</th>
+                        <td>Nada cadastrado</td>
+                        <td>Nada cadastrado</td>
+                        <td>Nada cadastrado</td>
+                        <td>Nada cadastrado</td>
                     </tr>
-                {% endfor %}
             </tbody>
         </table>
+        {% endif %}
+        
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
