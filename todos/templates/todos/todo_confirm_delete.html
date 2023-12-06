@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block page_title %}
+    Excluir tarefa
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Exluir tarefa</h1>
+    <p>Você realmente quer exlcuir a tarefa <strong>{{todo.title}}</strong></p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">Sim</button>
+
+    </form>
+{% endblock content %}
+
