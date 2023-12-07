@@ -6,3 +6,5 @@ class Todo(models.Model):
     create_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
     dead_line = models.DateField(null=False, blank=False, verbose_name = "Data de entrega")
     finshed_at = models.DateField(null=True)
+    class Meta:
+        ordering = ["dead_line"]

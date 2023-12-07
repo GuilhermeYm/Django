@@ -29,8 +29,8 @@
                     <td>{{todo.dead_line}}</td>
                     <td>{{todo.finshed_at|default:"-"}}</td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-sm">Concluir</a>
-                        <a href="{% url "editar" pk=todo.pk %}" class="btn btn-secondary btn-sm">Editar tarefa</a>
+                        <a href="{% url "completar" pk=todo.pk %}" class="btn btn-primary btn-sm {% if todo.finshed_at %}disabled{% endif %}">Concluir</a>
+                        <a href="{% url "editar" pk=todo.pk %}" class="btn btn-secondary btn-sm {% if todo.finshed_at %}disabled{% endif %}">Editar tarefa</a>
                         <a href="{% url "deletar" pk=todo.pk %}" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
